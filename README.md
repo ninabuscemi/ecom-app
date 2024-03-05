@@ -2,6 +2,8 @@
 
 ## Description
 
+For this project, the objective was the create a back-end application for an ecommerce website using an Express.js API to connect with a MySQL database using Sequelize.
+
 ## User Story
 
 ```md
