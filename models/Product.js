@@ -1,56 +1,53 @@
-// import important parts of sequelize library
+// Import necessary components from the Sequelize library
 const { Model, DataTypes } = require('sequelize');
-// import our database connection from config.js
+// Import the database connection from the config file
 const sequelize = require('../config/connection');
 
-// Initialize Product model (table) by extending off Sequelize's Model class
+// Define the Product model by extending the Sequelize Model class
 class Product extends Model {}
 
-// set up fields and rules for Product model
+// Define fields and constraints for the Product model
 Product.init(
   {
+    // Define the ID field with auto-increment, primary key, and not null constraints
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
+    // Define the product name field with a not null constraint
     product_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    // Define the price field with decimal data type and decimal validation
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
         isDecimal: true
-      },
+      }
     },
+    // Define the stock field with decimal data type, default value, and numeric validation
     stock: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+      type: DataTypes.DECIMAL,
+      allowNull: false, 
       defaultValue: 10,
       validate: {
         isNumeric: true
-      },
+      }
     },
+    // Define the category ID field with references to the category table
     category_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'category',
-        key: 'id',
-        unique: true
+        key: 'id'
       }
     },
-    tag_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'product_tag',
-        key: 'id',
-        unique: false
-      }
-    }
   },
+  // Define additional model options
   {
     sequelize,
     timestamps: false,
