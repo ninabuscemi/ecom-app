@@ -42,7 +42,7 @@ node server.js
 ```
 ## Demo
 
-[ScreenTastify Link](https://app.screencastify.com/v3/watch/lt0zrlkMrnKlYiNg101G)
+[ScreenTastify Link](https://drive.google.com/file/d/1Wp9ZrOeGErYcwcRRmS8PFm1jN95Um1Rb/view?usp=sharing)
 
 ## Tests
 The application was test with Insomnia.
