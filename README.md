@@ -31,18 +31,18 @@ THEN I am able to successfully create, update, and delete data in my database
 ## Installation
 - Write your credentials for the database into the .env file
 - Run SQL commands in schema.sql
+- Exit SQL server
 - Open the terminal and run commands:
      
 ```
-node seeds
+node seeds/index.js
 ```
-
 ``` 
 node server.js
 ```
 ## Demo
 
-
+[ScreenTastify Link](https://app.screencastify.com/v3/watch/lt0zrlkMrnKlYiNg101G)
 
 ## Tests
 The application was test with Insomnia.
