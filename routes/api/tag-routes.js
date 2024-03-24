@@ -1,13 +1,14 @@
 const router = require('express').Router();
 const { Tag, Product, ProductTag } = require('../../models');
 
+// GET all tags with associated products
 router.get('/', (req, res) => {
   Tag.findAll({
     attributes: ['id', 'tag_name'],
     include: [
       {
         model: Product,
-        attribute: ['id', 'product_name', 'price', 'stock', 'category_id']
+        attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
       }
     ]
   })
@@ -17,6 +18,7 @@ router.get('/', (req, res) => {
   })
 });
 
+// GET a single tag by ID with associated products
 router.get('/:id', (req, res) => {
   Tag.findOne({
     where: {
@@ -24,14 +26,14 @@ router.get('/:id', (req, res) => {
     },
     attributes: ['id', 'tag_name'],
     include: [
-    {
-      model: Product,
-      attribute: ['id', 'product_name', 'price', 'stock', 'category_id']
-    }
-  ]
+      {
+        model: Product,
+        attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
+      }
+    ]
   })
   .then(TagDB => {
-    if(!TagDB) {
+    if (!TagDB) {
       res.status(404).json(err)
     }
     res.json(TagDB)
@@ -41,8 +43,9 @@ router.get('/:id', (req, res) => {
   })
 });
 
+// POST a new tag
 router.post('/', (req, res) => {
-  Tag.create ({
+  Tag.create({
     tag_name: req.body.tag_name,
   })
   .then(TagDB => res.json(TagDB))
@@ -51,6 +54,7 @@ router.post('/', (req, res) => {
   })
 });
 
+// PUT (update) an existing tag by ID
 router.put('/:id', (req, res) => {
   Tag.update(req.body, {
     where: {
@@ -58,7 +62,7 @@ router.put('/:id', (req, res) => {
     }
   })
   .then(TagDB => {
-    if(!TagDB) {
+    if (!TagDB) {
       res.status(404).json(err)
     }
     res.json(TagDB)
@@ -68,14 +72,15 @@ router.put('/:id', (req, res) => {
   })
 });
 
+// DELETE a tag by ID
 router.delete('/:id', (req, res) => {
-  Tag.destroy ({
+  Tag.destroy({
     where: {
       id: req.params.id
     }
   })
   .then(TagDB => {
-    if(!TagDB) {
+    if (!TagDB) {
       res.status(404).json(err)
     }
     res.json(TagDB)
