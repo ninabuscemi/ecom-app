@@ -20,7 +20,7 @@ For this project, the objective was the create a back-end application for an eco
 
 ## Demo
 
-[GoogleDrive Link](https://drive.google.com/file/d/1Wp9ZrOeGErYcwcRRmS8PFm1jN95Um1Rb/view?usp=sharing)
+Click [here](https://drive.google.com/file/d/1Wp9ZrOeGErYcwcRRmS8PFm1jN95Um1Rb/view?usp=sharing) to watch a walkthrough demonstration of the application!
 
 ## Installation
 
